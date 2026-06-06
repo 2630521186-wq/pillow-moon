@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital,wght@1,400&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* Mystical Purple/Lavender Celestial Palette from image_0.png */
+  --bg: 260 45% 7%;      /* Deep mystical purple: #0d071c */
+  --surface: 260 38% 12%; /* Translucent surface: #161026 */
+  --text: 255 25% 95%;    /* Soft white: #f1eff4 */
+  --muted: 260 14% 65%;   /* Nebula slate-gray: #9e98ab */
+  --stroke: 260 30% 19%;  /* Dark purple border stroke: #231d31 */
+  --accent: 265 85% 76%;  /* Dreamy pajama lavender/purple: #cca3f0 */
+  --pajama-yellow: 48 97% 65%; /* Pajama soft yellow: #fdeb7b */
+  --pajama-pink: 341 100% 82%; /* Pajama soft pink: #ffb7d2 */
+  --pajama-blue: 212 96% 78%;  /* Pajama soft blue: #93c5fd */
+}
+
+@theme {
+  --color-bg: hsl(var(--bg));
+  --color-surface: hsl(var(--surface));
+  --color-text-primary: hsl(var(--text));
+  --color-muted: hsl(var(--muted));
+  --color-stroke: hsl(var(--stroke));
+  --color-accent: hsl(var(--accent));
+  --color-pajama-yellow: hsl(var(--pajama-yellow));
+  --color-pajama-pink: hsl(var(--pajama-pink));
+  --color-pajama-blue: hsl(var(--pajama-blue));
+  
+  --font-body: "Inter", sans-serif;
+  --font-display: "Instrument Serif", serif;
+}
+
+/* Custom Base styles */
+body {
+  background-color: hsl(var(--bg));
+  color: hsl(var(--text));
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* Custom Utility Classes */
+.accent-gradient {
+  background: linear-gradient(135deg, hsl(var(--pajama-blue)) 0%, hsl(var(--accent)) 50%, hsl(var(--pajama-yellow)) 100%);
+}
+
+.dreamy-night-sky {
+  background: linear-gradient(180deg, #090314 0%, #17072e 30%, #30165a 60%, #4f3385 80%, #765ba8 92%, #a593cb 100%);
+}
+
+.accent-gradient-border {
+  position: relative;
+  background-clip: padding-box;
+  border: 1px solid transparent;
+}
+
+.accent-gradient-border::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: -1;
+  margin: -1px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%);
+}
+
+/* Keyframes and Animations */
+@keyframes scroll-down {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+
+@keyframes role-fade-in {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.18; transform: scale(0.85); }
+  50% { opacity: 0.95; transform: scale(1.1); }
+}
+
+@keyframes slow-orbit {
+  0% { transform: rotate(0deg) translateY(0px) rotate(0deg); }
+  50% { transform: rotate(180deg) translateY(12px) rotate(-180deg); }
+  100% { transform: rotate(360deg) translateY(0px) rotate(-360deg); }
+}
+
+@keyframes soft-pulse {
+  0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.1; }
+  50% { transform: scale(1.08) translate(8px, -6px); opacity: 0.16; }
+}
+
+@keyframes cloud-drift {
+  0% { transform: translateX(0px) translateY(0px); }
+  50% { transform: translateX(25px) translateY(-4px); }
+  100% { transform: translateX(0px) translateY(0px); }
+}
+
+.animate-scroll-down {
+  animation: scroll-down 1.5s ease-in-out infinite;
+}
+
+.animate-role-fade-in {
+  animation: role-fade-in 0.4s ease-out forwards;
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle var(--duration, 4s) cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-slow-orbit {
+  animation: slow-orbit 30s linear infinite;
+}
+
+.animate-soft-pulse {
+  animation: soft-pulse var(--pulse-duration, 12s) ease-in-out infinite;
+}
+
+.animate-cloud-drift {
+  animation: cloud-drift var(--drift-duration, 25s) ease-in-out infinite;
+}
+
+/* Custom Hide Scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes marquee-loop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-loop {
+  animation: marquee-loop 35s linear infinite;
+}
+
+

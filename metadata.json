@@ -1,0 +1,6 @@
+{
+  "name": "Pillow Moon",
+  "description": "An interactive, elegant single-page landing site and portfolio for Pillow Moon, a sleep healing IP featuring AI-powered sleep help, night sky visuals, and GSAP loading flows.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
